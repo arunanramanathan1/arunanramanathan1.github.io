@@ -6,234 +6,215 @@
   <title>Intensive advanced one day workshop from Java 8 until Java 21</title>
 
   <style>
-    :root {
-      --primary: #0f172a;
-      --accent: #2563eb;
-      --bg: #f8fafc;
-      --card: #ffffff;
-      --danger: #dc2626;
-      --success: #16a34a;
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
     body {
       margin: 0;
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
-      background: var(--bg);
-      color: #0f172a;
+      background: #f5f7fb;
+      color: #1f2937;
       line-height: 1.6;
     }
 
     .container {
       max-width: 900px;
       margin: auto;
-      padding: 16px;
-    }
-
-    header {
-      background: linear-gradient(135deg, #2563eb, #1e40af);
-      color: #ffffff;
-      padding: 28px 20px;
-      border-radius: 16px;
-      text-align: center;
-      margin-bottom: 24px;
-    }
-
-    header h1 {
-      margin: 0;
-      font-size: 1.6rem;
-    }
-
-    .card {
-      background: var(--card);
-      border-radius: 16px;
       padding: 20px;
-      margin-bottom: 20px;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.05);
+      padding-bottom: 120px;
     }
 
-    .highlight {
-      background: #eef2ff;
-      border-left: 5px solid var(--accent);
-      padding: 16px;
-      border-radius: 12px;
-      margin: 16px 0;
-      font-weight: 600;
+    h1 {
+      font-size: 1.8rem;
+      text-align: center;
+      margin-bottom: 20px;
+      color: #111827;
     }
 
     h2 {
-      font-size: 1.2rem;
-      margin-top: 0;
-      color: var(--accent);
+      margin-top: 32px;
+      color: #111827;
+      font-size: 1.3rem;
     }
 
-    ul {
-      padding-left: 20px;
+    .highlight {
+      background: #fff;
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 20px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.06);
     }
 
-    li {
+    .note {
+      background: #fff7ed;
+      border-left: 6px solid #f97316;
+      padding: 16px;
+      border-radius: 8px;
+      font-weight: 600;
+    }
+
+    .list {
+      margin-left: 20px;
+    }
+
+    .list li {
       margin-bottom: 6px;
     }
 
-    .topics {
-      columns: 1;
-    }
-
-    @media (min-width: 700px) {
-      .topics {
-        columns: 2;
-      }
-    }
-
     .price-box {
-      background: #ecfeff;
-      border: 2px dashed #0891b2;
-      border-radius: 16px;
-      padding: 20px;
       text-align: center;
-      margin-bottom: 20px;
+      margin: 30px 0;
     }
 
     .original-price {
       text-decoration: line-through;
-      color: var(--danger);
+      color: #6b7280;
       font-size: 1.2rem;
-      margin-right: 8px;
-      font-weight: bold;
+      margin-right: 10px;
     }
 
     .discount-price {
-      color: var(--success);
       font-size: 2rem;
-      font-weight: bold;
+      font-weight: 800;
+      color: #16a34a;
     }
 
-    .cta-container {
-      position: sticky;
+    .bottom-bar {
+      position: fixed;
       bottom: 0;
+      left: 0;
+      right: 0;
       background: #ffffff;
+      box-shadow: 0 -8px 20px rgba(0,0,0,0.1);
       padding: 16px;
-      box-shadow: 0 -4px 16px rgba(0,0,0,0.1);
-      text-align: center;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
     }
 
-    .cta-button {
-      background: var(--accent);
-      color: #ffffff;
+    .bottom-price {
+      font-size: 1rem;
+    }
+
+    .bottom-price span {
+      display: block;
+    }
+
+    .register-btn {
+      background: #2563eb;
+      color: #fff;
       border: none;
-      padding: 16px 28px;
-      font-size: 1.1rem;
-      border-radius: 999px;
+      border-radius: 10px;
+      padding: 14px 22px;
+      font-size: 1rem;
+      font-weight: 700;
       cursor: pointer;
-      width: 100%;
-      max-width: 420px;
-      font-weight: bold;
+      width: 160px;
     }
 
-    .cta-button:hover {
+    .register-btn:hover {
       background: #1d4ed8;
     }
 
-    a {
-      color: var(--accent);
-      word-break: break-word;
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 1.4rem;
+      }
+
+      .discount-price {
+        font-size: 1.6rem;
+      }
+
+      .bottom-bar {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .register-btn {
+        width: 100%;
+      }
     }
   </style>
 </head>
 <body>
 
   <div class="container">
+    <h1>Intensive advanced one day workshop from Java 8 until Java 21</h1>
 
-    <header>
-      <h1>Intensive advanced one day workshop from Java 8 until Java 21</h1>
-    </header>
+    <div class="highlight">
+      <p><strong>Dear Learners,</strong></p>
 
-    <div class="card">
-      <p>Dear Learners,</p>
-
-      <div class="highlight">
+      <div class="note">
         NOTE : there is a pre-requisite for this workshop, in order to understand the content, you should know core java, if you don't know basic Core Java then this workshop is not for you.
       </div>
 
       <p>
-        My name is Arunan Ramanathan, I have more than 25 years of experience when it comes to Java and 18 years of experience in corporate world.
+        My name is <strong>Arunan Ramanathan</strong>, I have more than <strong>25 years of experience</strong> when it comes to Java and <strong>18 years of experience in corporate world</strong>.
       </p>
 
-      <p>I have 3 Java certifications in my belt,</p>
-      <ul>
+      <p><strong>I have 3 Java certifications in my belt,</strong></p>
+      <ul class="list">
         <li>Sun certified Java 1.4 Programmer</li>
         <li>Oracle certified Java 7 Programmer</li>
         <li>Oracle certified Java 8 Programmer</li>
       </ul>
     </div>
 
-    <div class="card">
-      <h2>Workshop Topics</h2>
+    <div class="highlight">
+      <h2>Enough about me, we are going to cover the following topics in the one day workshop</h2>
 
-      <p>Enough about me, we are going to cover the following topics in the one day workshop</p>
+      <p><strong>1. JAVA 8</strong></p>
+      <ul class="list">
+        <li>Functional Programming</li>
+        <li>Lambda Expressions</li>
+        <li>Functional Interfaces</li>
+        <li>Method References</li>
+        <li>Streams</li>
+        <li>Filtering and Slicing</li>
+        <li>Mapping</li>
+        <li>Finding and Matching</li>
+        <li>Reducing</li>
+        <li>Numeric Streams</li>
+        <li>Collecting data with Streams</li>
+        <li>Grouping</li>
+        <li>Partitioning</li>
+        <li>Parallel Streams</li>
+        <li>Default Methods</li>
+        <li>Optional</li>
+        <li>Completable Future</li>
+        <li>New Date/Time API</li>
+        <li>Miscellaneous</li>
+      </ul>
 
-      <div class="topics">
-        <ul>
-          <li><strong>JAVA 8</strong></li>
-          <li>Functional Programming</li>
-          <li>Lambda Expressions</li>
-          <li>Functional Interfaces</li>
-          <li>Method References</li>
-          <li>Streams</li>
-          <li>Filtering and Slicing</li>
-          <li>Mapping</li>
-          <li>Finding and Matching</li>
-          <li>Reducing</li>
-          <li>Numeric Streams</li>
-          <li>Collecting data with Streams</li>
-          <li>Grouping</li>
-          <li>Partitioning</li>
-          <li>Parallel Streams</li>
-          <li>Default Methods</li>
-          <li>Optional</li>
-          <li>Completable Future</li>
-          <li>New Date/Time API</li>
-          <li>Miscellaneous</li>
-          <li>Java 9 – Modules</li>
-          <li>Java 10 new features</li>
-          <li>Java 11 new features</li>
-          <li>Java 12 new features</li>
-          <li>Java 13 new features</li>
-          <li>Java 14 new features</li>
-          <li>Java 15 new features</li>
-          <li>Java 16 new features</li>
-          <li>Java 17 new features</li>
-          <li>Java 18 new features</li>
-          <li>Java 19 new features</li>
-          <li>Java 20 new features</li>
-          <li>Java 21 new features</li>
-        </ul>
-      </div>
+      <ul class="list">
+        <li>Java 9 – Modules</li>
+        <li>Java 10 new features</li>
+        <li>Java 11 new features</li>
+        <li>Java 12 new features</li>
+        <li>Java 13 new features</li>
+        <li>Java 14 new features</li>
+        <li>Java 15 new features</li>
+        <li>Java 16 new features</li>
+        <li>Java 17 new features</li>
+        <li>Java 18 new features</li>
+        <li>Java 19 new features</li>
+        <li>Java 20 new features</li>
+        <li>Java 21 new features</li>
+      </ul>
     </div>
 
-    <div class="card">
-      <p>
-        I assure you that you'll become master of Java 8 until Java 21 after attending the workshop,
-      </p>
+    <div class="highlight">
+      <p><strong>I assure you that you'll become master of Java 8 until Java 21 after attending the workshop,</strong></p>
 
       <h2>What you’ll learn:</h2>
-      <ul>
+      <ul class="list">
         <li>You'll master Java 8 until Java 21</li>
         <li>You'll have hands on experience from Java 8 to 21 in this one day workshop</li>
         <li>You can easily crack modern interviews with this knowledge</li>
         <li>Loaded with this knowledge you can perform well in your work with updated knowledge on Java</li>
         <li>You can crack tier-1 companies interviews</li>
       </ul>
-    </div>
 
-    <div class="card">
       <h2>Are there any course requirements or prerequisites?</h2>
-      <p>
-        You should know Core Java. If you don't know Core Java, this course is not for you
-      </p>
+      <p>You should know Core Java. If you don't know Core Java, this course is not for you</p>
 
       <h2>Who this course is for:</h2>
       <p>
@@ -241,13 +222,35 @@
       </p>
     </div>
 
-    <div class="card">
+    <div class="highlight">
       <p>
-        I took this workshop in many companies and students from countries like Spain, US, Mexico and India and have received wonderful feedback from trainees, This workshop received various feedbacks from trainees all around the world and I personally sculpted this workshop and refined it in last 9 years. And you will definitely have fun doing the hands-on. Hands-on is totally based on whatever I have taught you, so you'll thoroughly enjoy it.
+        I took this workshop in many companies and students from countries like,
+      </p>
+      <ul class="list">
+        <li>Spain</li>
+        <li>US</li>
+        <li>Mexico</li>
+        <li>India</li>
+      </ul>
+
+      <p>
+        and have received wonderful feedback from trainees, This workshop received various feedbacks from trainees all around the world and I personally sculpted this workshop and refined it in last 9 years.
       </p>
 
       <p>
-        Workshop will be conducted in one of the coming 4 Sundays, I don't want to add too many people in the session, so that it will be easy for the students to clarify their doubts. Max people per session would be 50, first come first serve basis. After you register for the course, I will send an invite for 1 Sunday in the coming 4 weeks, if you are not flexible with the date, I will postpone until you are ready
+        And you will definitely have fun doing the hands-on. Hands-on is totally based on whatever I have taught you, so you'll thoroughly enjoy it.
+      </p>
+
+      <p>
+        Workshop will be conducted in one of the coming 4 Sundays,
+      </p>
+
+      <p>
+        I don't want to add too many people in the session, so that it will be easy for the students to clarify their doubts.
+      </p>
+
+      <p>
+        Max people per session would be 50, first come first serve basis. After you register for the course, I will send an invite for 1 Sunday in the coming 4 weeks, if you are not flexible with the date, I will postpone until you are ready
       </p>
 
       <p>
@@ -255,27 +258,26 @@
       </p>
 
       <p>
-        <a href="https://www.udemy.com/course/advanced-one-day-java-workshop-from-java-8-to-17" target="_blank">
-          https://www.udemy.com/course/advanced-one-day-java-workshop-from-java-8-to-17
-        </a>
+        https://www.udemy.com/course/advanced-one-day-java-workshop-from-java-8-to-17
       </p>
 
       <p>
-        The reason for taking online session is to clarify all your doubts. If you take up this course, I will also share a Udemy FREE coupon for my course so you can have the course life long.
+        The reason for taking online session apart from Udemy is to clarify all your doubts. If you take up this course, I will also share a Udemy FREE coupon for my course so you can have the course life long.
       </p>
     </div>
 
     <div class="price-box">
-      <div>
-        <span class="original-price">₹15,999</span>
-        <span class="discount-price">₹6,999</span>
-      </div>
+      <span class="original-price">₹15,999</span>
+      <span class="discount-price">₹6,999</span>
     </div>
-
   </div>
 
-  <div class="cta-container">
-    <button class="cta-button">Register Now</button>
+  <div class="bottom-bar">
+    <div class="bottom-price">
+      <span class="original-price">₹15,999</span>
+      <span class="discount-price">₹6,999</span>
+    </div>
+    <button class="register-btn">Register Now</button>
   </div>
 
 </body>
