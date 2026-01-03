@@ -3,252 +3,280 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Java 8 to Java 21 Workshop</title>
-
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <title>Intensive advanced one day workshop from Java 8 until Java 21</title>
 
   <style>
     :root {
-      --primary: #2563eb;
-      --accent: #22c55e;
-      --danger: #ef4444;
+      --primary: #0f172a;
+      --accent: #2563eb;
       --bg: #f8fafc;
       --card: #ffffff;
-      --text: #1f2937;
+      --danger: #dc2626;
+      --success: #16a34a;
+    }
+
+    * {
+      box-sizing: border-box;
     }
 
     body {
       margin: 0;
-      font-family: "Inter", sans-serif;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
       background: var(--bg);
-      color: var(--text);
-      line-height: 1.7;
+      color: #0f172a;
+      line-height: 1.6;
     }
 
     .container {
-      max-width: 1100px;
+      max-width: 900px;
       margin: auto;
-      padding: 20px;
+      padding: 16px;
     }
 
-    .hero {
+    header {
       background: linear-gradient(135deg, #2563eb, #1e40af);
-      color: #fff;
-      padding: 40px 25px;
-      border-radius: 18px;
+      color: #ffffff;
+      padding: 28px 20px;
+      border-radius: 16px;
       text-align: center;
-      margin-bottom: 35px;
+      margin-bottom: 24px;
     }
 
-    .hero h1 {
-      font-size: clamp(1.8rem, 4vw, 2.6rem);
-      font-weight: 800;
-      margin-bottom: 12px;
-    }
-
-    .hero p {
-      font-size: 1.05rem;
-      opacity: 0.95;
-    }
-
-    .note {
-      background: #fff5f5;
-      border-left: 6px solid var(--danger);
-      padding: 20px;
-      border-radius: 12px;
-      margin-bottom: 30px;
-      font-weight: 600;
+    header h1 {
+      margin: 0;
+      font-size: 1.6rem;
     }
 
     .card {
       background: var(--card);
-      padding: 28px;
       border-radius: 16px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-      margin-bottom: 30px;
+      padding: 20px;
+      margin-bottom: 20px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.05);
     }
 
     .highlight {
-      font-weight: 800;
-      color: var(--primary);
+      background: #eef2ff;
+      border-left: 5px solid var(--accent);
+      padding: 16px;
+      border-radius: 12px;
+      margin: 16px 0;
+      font-weight: 600;
     }
 
-    .success {
-      font-weight: 800;
+    h2 {
+      font-size: 1.2rem;
+      margin-top: 0;
       color: var(--accent);
     }
 
-    .cta {
-      background: linear-gradient(135deg, #22c55e, #16a34a);
-      color: #fff;
-      padding: 35px 25px;
-      border-radius: 18px;
-      text-align: center;
+    ul {
+      padding-left: 20px;
+    }
+
+    li {
+      margin-bottom: 6px;
+    }
+
+    .topics {
+      columns: 1;
+    }
+
+    @media (min-width: 700px) {
+      .topics {
+        columns: 2;
+      }
     }
 
     .price-box {
-      margin: 20px 0;
-      font-size: 1.2rem;
-      font-weight: 700;
-    }
-
-    .old-price {
-      text-decoration: line-through;
-      opacity: 0.8;
-      margin-right: 12px;
-    }
-
-    .new-price {
-      font-size: 1.6rem;
-      font-weight: 900;
-    }
-
-    .cta button {
-      margin-top: 20px;
-      background: #fff;
-      color: #16a34a;
-      border: none;
-      padding: 14px 30px;
-      border-radius: 999px;
-      font-size: 1rem;
-      font-weight: 800;
-      cursor: pointer;
-    }
-
-    footer {
+      background: #ecfeff;
+      border: 2px dashed #0891b2;
+      border-radius: 16px;
+      padding: 20px;
       text-align: center;
-      font-size: 0.85rem;
-      opacity: 0.7;
-      margin: 30px 0 10px;
+      margin-bottom: 20px;
     }
 
-    @media (max-width: 600px) {
-      .hero {
-        padding: 30px 20px;
-      }
-      .card {
-        padding: 22px;
-      }
+    .original-price {
+      text-decoration: line-through;
+      color: var(--danger);
+      font-size: 1.2rem;
+      margin-right: 8px;
+      font-weight: bold;
+    }
+
+    .discount-price {
+      color: var(--success);
+      font-size: 2rem;
+      font-weight: bold;
+    }
+
+    .cta-container {
+      position: sticky;
+      bottom: 0;
+      background: #ffffff;
+      padding: 16px;
+      box-shadow: 0 -4px 16px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+
+    .cta-button {
+      background: var(--accent);
+      color: #ffffff;
+      border: none;
+      padding: 16px 28px;
+      font-size: 1.1rem;
+      border-radius: 999px;
+      cursor: pointer;
+      width: 100%;
+      max-width: 420px;
+      font-weight: bold;
+    }
+
+    .cta-button:hover {
+      background: #1d4ed8;
+    }
+
+    a {
+      color: var(--accent);
+      word-break: break-word;
     }
   </style>
 </head>
 <body>
 
-<div class="container">
+  <div class="container">
 
-  <div class="hero">
-    <h1>Java 8 to Java 21 – One Day Workshop</h1>
-    <p>Hands-on • Interview Ready • Industry Focused</p>
-  </div>
+    <header>
+      <h1>Intensive advanced one day workshop from Java 8 until Java 21</h1>
+    </header>
 
-  <div class="note">
-    NOTE : there is a pre-requisite for this workshop, in order to understand the content, you should know core java, if you don't know basic Core Java then this workshop is not for you.
-  </div>
+    <div class="card">
+      <p>Dear Learners,</p>
 
-  <div class="card">
-    <p>
-      Dear Learners,
-      <br><br>
-      My name is <span class="highlight">Arunan Ramanathan</span>, I have more than
-      <span class="highlight">25 years of experience</span> when it comes to Java and
-      <span class="highlight">18 years of experience</span> in corporate world.
-      <br><br>
-      I have <span class="highlight">3 Java certifications</span> in my belt,
-      <br>
-      1. Sun certified Java 1.4 Programmer<br>
-      2. Oracle certified Java 7 Programmer<br>
-      3. Oracle certified Java 8 Programmer
-      <br><br>
-      Enough about me, we are going to cover the following topics in the one day workshop
-    </p>
-  </div>
+      <div class="highlight">
+        NOTE : there is a pre-requisite for this workshop, in order to understand the content, you should know core java, if you don't know basic Core Java then this workshop is not for you.
+      </div>
 
-  <div class="card">
-    <p>
-      <span class="highlight">1. JAVA 8</span><br>
-      •Functional Programming<br>
-      •Lambda Expressions<br>
-      –Functional Interfaces<br>
-      –Method References<br>
-      •Streams<br>
-      –Filtering and Slicing<br>
-      –Mapping<br>
-      –Finding and Matching<br>
-      –Reducing<br>
-      –Numeric Streams<br>
-      •Collecting data with Streams<br>
-      –Grouping<br>
-      –Partitioning<br>
-      •Parallel Streams<br>
-      •Default Methods<br>
-      •Optional<br>
-      •Completable Future<br>
-      •New Date/Time API<br>
-      •Miscellaneous
-      <br><br>
-      <span class="highlight">2. Java 9</span> •Modules<br>
-      3. Java 10 new features<br>
-      4. Java 11 new features<br>
-      5. Java 12 new features<br>
-      6. Java 13 new features<br>
-      7. Java 14 new features<br>
-      8. Java 15 new features<br>
-      10. Java 16 new features<br>
-      11. Java 17 new features<br>
-      12. Java 18 new features<br>
-      13. Java 19 new features<br>
-      14. Java 20 new features<br>
-      15. Java 21 new features
-    </p>
-  </div>
+      <p>
+        My name is Arunan Ramanathan, I have more than 25 years of experience when it comes to Java and 18 years of experience in corporate world.
+      </p>
 
-  <div class="card">
-    <p>
-      <span class="success">I assure you that you'll become master of Java 8 until Java 21 after attending the workshop,</span>
-      <br><br>
-      What you’ll learn:<br>
-      You'll master Java 8 until Java 21<br>
-      You'll have hands on experience from Java 8 to 21 in this one day workshop<br>
-      You can easily crack modern interviews with this knowledge<br>
-      Loaded with this knowledge you can perform well in your work with updated knowledge on Java<br>
-      You can crack tier-1 companies interviews
-    </p>
-  </div>
-
-  <div class="card">
-    <p>
-      Are there any course requirements or prerequisites?<br>
-      You should know Core Java. If you don't know Core Java, this course is not for you
-      <br><br>
-      Who this course is for:<br>
-      This course is for people who have good understanding on core Java. If you want to impress your colleagues or your boss with your latest Java knowledge this is the course for you. You'll make amazing pull requests after arming knowledge from Java 8 to 21
-    </p>
-  </div>
-
-  <div class="card">
-    <p>
-      I took this workshop in many companies and students from countries like Spain, US, Mexico and India and have received wonderful feedback from trainees, This workshop received various feedbacks from trainees all around the world and I personally sculpted this workshop and refined it in last 9 years. And you will definitely have fun doing the hands-on. Hands-on is totally based on whatever I have taught you, so you'll thoroughly enjoy it.
-    </p>
-  </div>
-
-  <div class="cta">
-    <p>
-      Workshop will be conducted in one of the coming 4 Sundays, I don't want to add too many people in the session, so that it will be easy for the students to clarify their doubts. Max people per session would be 50, first come first serve basis. After you register for the course, I will send an invite for 1 Sunday in the coming 4 weeks, if you are not flexible with the date, I will postpone until you are ready
-    </p>
-
-    <div class="price-box">
-      <span class="old-price">Rs.15,999</span>
-      <span class="new-price">Early Bird Price: Rs.6999</span>
+      <p>I have 3 Java certifications in my belt,</p>
+      <ul>
+        <li>Sun certified Java 1.4 Programmer</li>
+        <li>Oracle certified Java 7 Programmer</li>
+        <li>Oracle certified Java 8 Programmer</li>
+      </ul>
     </div>
 
-    <button>Register Now</button>
+    <div class="card">
+      <h2>Workshop Topics</h2>
+
+      <p>Enough about me, we are going to cover the following topics in the one day workshop</p>
+
+      <div class="topics">
+        <ul>
+          <li><strong>JAVA 8</strong></li>
+          <li>Functional Programming</li>
+          <li>Lambda Expressions</li>
+          <li>Functional Interfaces</li>
+          <li>Method References</li>
+          <li>Streams</li>
+          <li>Filtering and Slicing</li>
+          <li>Mapping</li>
+          <li>Finding and Matching</li>
+          <li>Reducing</li>
+          <li>Numeric Streams</li>
+          <li>Collecting data with Streams</li>
+          <li>Grouping</li>
+          <li>Partitioning</li>
+          <li>Parallel Streams</li>
+          <li>Default Methods</li>
+          <li>Optional</li>
+          <li>Completable Future</li>
+          <li>New Date/Time API</li>
+          <li>Miscellaneous</li>
+          <li>Java 9 – Modules</li>
+          <li>Java 10 new features</li>
+          <li>Java 11 new features</li>
+          <li>Java 12 new features</li>
+          <li>Java 13 new features</li>
+          <li>Java 14 new features</li>
+          <li>Java 15 new features</li>
+          <li>Java 16 new features</li>
+          <li>Java 17 new features</li>
+          <li>Java 18 new features</li>
+          <li>Java 19 new features</li>
+          <li>Java 20 new features</li>
+          <li>Java 21 new features</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="card">
+      <p>
+        I assure you that you'll become master of Java 8 until Java 21 after attending the workshop,
+      </p>
+
+      <h2>What you’ll learn:</h2>
+      <ul>
+        <li>You'll master Java 8 until Java 21</li>
+        <li>You'll have hands on experience from Java 8 to 21 in this one day workshop</li>
+        <li>You can easily crack modern interviews with this knowledge</li>
+        <li>Loaded with this knowledge you can perform well in your work with updated knowledge on Java</li>
+        <li>You can crack tier-1 companies interviews</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h2>Are there any course requirements or prerequisites?</h2>
+      <p>
+        You should know Core Java. If you don't know Core Java, this course is not for you
+      </p>
+
+      <h2>Who this course is for:</h2>
+      <p>
+        This course is for people who have good understanding on core Java. If you want to impress your colleagues or your boss with your latest Java knowledge this is the course for you. You'll make amazing pull requests after arming knowledge from Java 8 to 21
+      </p>
+    </div>
+
+    <div class="card">
+      <p>
+        I took this workshop in many companies and students from countries like Spain, US, Mexico and India and have received wonderful feedback from trainees, This workshop received various feedbacks from trainees all around the world and I personally sculpted this workshop and refined it in last 9 years. And you will definitely have fun doing the hands-on. Hands-on is totally based on whatever I have taught you, so you'll thoroughly enjoy it.
+      </p>
+
+      <p>
+        Workshop will be conducted in one of the coming 4 Sundays, I don't want to add too many people in the session, so that it will be easy for the students to clarify their doubts. Max people per session would be 50, first come first serve basis. After you register for the course, I will send an invite for 1 Sunday in the coming 4 weeks, if you are not flexible with the date, I will postpone until you are ready
+      </p>
+
+      <p>
+        There is a udemy course I published years ago and thousands of students participated and gave great reviews, check out those reviews, here is the link for udemy course,
+      </p>
+
+      <p>
+        <a href="https://www.udemy.com/course/advanced-one-day-java-workshop-from-java-8-to-17" target="_blank">
+          https://www.udemy.com/course/advanced-one-day-java-workshop-from-java-8-to-17
+        </a>
+      </p>
+
+      <p>
+        The reason for taking online session is to clarify all your doubts. If you take up this course, I will also share a Udemy FREE coupon for my course so you can have the course life long.
+      </p>
+    </div>
+
+    <div class="price-box">
+      <div>
+        <span class="original-price">₹15,999</span>
+        <span class="discount-price">₹6,999</span>
+      </div>
+    </div>
+
   </div>
 
-  <footer>
-    © 2025 Java Workshop • All Rights Reserved
-  </footer>
-
-</div>
+  <div class="cta-container">
+    <button class="cta-button">Register Now</button>
+  </div>
 
 </body>
 </html>
