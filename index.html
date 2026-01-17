@@ -132,7 +132,7 @@
             display: block;
             color: var(--accent-color);
             font-size: 3rem;
-            font-weight: bold;
+            font-weight: <strong>bold</strong>;
             margin: 10px 0;
         }
 
@@ -147,6 +147,7 @@
             font-weight: bold;
             transition: transform 0.2s, background-color 0.2s;
             box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            box-sizing: border-box; /* Ensures padding doesn't affect width */
         }
 
         .register-btn:hover {
@@ -165,7 +166,15 @@
         @media (max-width: 600px) {
             h1 { font-size: 1.6rem; }
             .container { padding: 10px; }
-            .register-btn { width: 90%; text-align: center; font-size: 1.2rem; }
+            .register-btn { 
+                display: block; /* Changes from inline-block to block */
+                width: 100%;    /* Takes full available width */
+                max-width: 300px; /* Prevents it from being too wide on some devices */
+                margin: 0 auto;  /* Centers the block element */
+                padding: 15px 20px;
+                font-size: 1.3rem;
+                text-align: center;
+            }
             .new-price { font-size: 2.2rem; }
         }
     </style>
@@ -184,9 +193,9 @@
     </div>
 
     <section class="bio-section">
-        <p>My name is <span class="highlight-text">Arunan Ramanathan</span>, I have more than <strong>25 years of experience</strong> when it comes to Java and <strong>18 years of experience</strong> in corporate world.</p>
+        <p>My name is <span class="highlight-text">Arunan Ramanathan</span>, I have more than 25 years of experience when it comes to Java and 18 years of experience in corporate world.</p>
 
-        <p>I have <strong>3 Java certifications</strong> in my belt,</p>
+        <p>I have 3 Java certifications in my belt,</p>
         <ol>
             <li>Sun certified Java 1.4 Programmer</li>
             <li>Oracle certified Java 7 Programmer</li>
@@ -296,8 +305,8 @@
     </section>
 
     <section class="pricing-section">
-        <span class="old-price">Original Price: 15,999</span>
-        <span class="new-price">Discounted Price: 6999</span>
+        <span class="old-price">Original Price: <del>15,999</del></span>
+        <span class="new-price">Discounted Price: <strong>6999</strong></span>
         <a href="#" class="register-btn">REGISTER NOW</a>
     </section>
 </div>
